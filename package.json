@@ -1,0 +1,19 @@
+{
+  "name": "demonodejs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alexander-pietsch-at-diva-e/demonodejs.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alexander-pietsch-at-diva-e/demonodejs/issues"
+  },
+  "homepage": "https://github.com/alexander-pietsch-at-diva-e/demonodejs#readme"
+}
