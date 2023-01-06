@@ -19,8 +19,7 @@ jobs:
       run: |
         #!/usr/bin/env bash
         set -euo pipefail
-        pack config default-builder gcr.io/buildpacks/builder:v1
-        pack build ${REPO}/demonodejs:latest --publish
+        pack build ${REPO}/demonodejs:latest --buildpack paketo-buildpacks/nodejs --builder paketobuildpacks/builder:base --publish
       env:
         REPO: docker.io/${{ secrets.DOCKER_HUB_USER }}
   
