@@ -1,10 +1,24 @@
 name: CI
 on: [push, pull_request]
 jobs:
-  test:
+  build:
+    name: Package, Publish, and Register
     runs-on: ubuntu-latest
     steps:
     - name: Clone code repo
       uses: actions/checkout@v2
     - name: Setup Buildpack CI
       uses: buildpacks/github-actions/setup-pack@v5.0.0
+    - id: package
+      run: |
+        #!/usr/bin/env bash
+        set -euo pipefail
+        BP_ID="$(cat buildpack.toml | yj -t | jq -r .buildpack.id)"
+        VERSION="$(cat buildpack.toml | yj -t | jq -r .buildpack.version)"
+        PACKAGE="${REPO}/$(echo "$BP_ID" | sed 's/\//_/g')"
+        pack buildpack package --publish ${PACKAGE}:${VERSION}
+        DIGEST="$(crane digest ${PACKAGE}:${VERSION})"
+        echo "::set-output name=bp_id::$BP_ID"
+        echo "::set-output name=version::$VERSION"
+        echo "::set-output name=address::${PACKAGE}@${DIGEST}"        
+      shell: bash
