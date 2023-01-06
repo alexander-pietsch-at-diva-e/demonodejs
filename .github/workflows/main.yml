@@ -21,7 +21,7 @@ jobs:
         set -euo pipefail
         echo "GITHUB_SHA::6: ${GITHUB_SHA::6}"
         echo "GITHUB_SHA: $GITHUB_SHA"
-        pack build ${REPO}/demonodejs:latest --buildpack paketo-buildpacks/nodejs --builder paketobuildpacks/builder:base --publish
+        pack build ${REPO}/demonodejs:${GITHUB_SHA::6} --tag ${REPO}/demonodejs:latest --buildpack paketo-buildpacks/nodejs --builder paketobuildpacks/builder:base --publish
       env:
         REPO: docker.io/${{ secrets.DOCKER_HUB_USER }}
   
