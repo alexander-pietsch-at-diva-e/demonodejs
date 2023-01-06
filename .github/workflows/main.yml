@@ -1,4 +1,4 @@
-name: build and create container on master
+name: build and create container on main commit
 
 on:
   push: #on: [push, pull_request]
