@@ -1,4 +1,4 @@
-name: On Tag
+name: on tag commit
 
 on:
   push:
