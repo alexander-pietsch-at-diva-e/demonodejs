@@ -12,6 +12,7 @@ jobs:
       - name: Create GitHub release
         run: |
           #!/usr/bin/env bash
-          echo "Hello!"
+          echo "Tag name from GITHUB_REF_NAME: $GITHUB_REF_NAME"
+          echo "Tag name from github.ref_name: ${{  github.ref_name }}"
         env:
           REPO: docker.io/${{ secrets.DOCKER_HUB_USER }}
