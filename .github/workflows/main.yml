@@ -1,1 +1,17 @@
-uses: buildpacks/github-actions/setup-pack@v5.0.0
+# in your job:
+name: MY GREAT JOB
+on:
+  push:
+    branches:
+      - '*'
+jobs:
+  pack-example:
+    name: Pack example!
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1
+    - uses: andrioid/setup-pack@latest
+    - name: Show folks how to run Pack:
+      run: |
+        pack --help
