@@ -6,5 +6,5 @@ jobs:
     steps:
     - name: Clone code repo
       uses: actions/checkout@v2
-    - name: Build and run unit tests with Buildpack CI
-      uses: buildpack-ci/run-tests@v1
+    - name: Setup Buildpack CI
+      uses: buildpacks/github-actions/setup-pack@v5.0.0
