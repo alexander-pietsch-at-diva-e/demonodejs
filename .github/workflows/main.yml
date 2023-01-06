@@ -20,11 +20,7 @@ jobs:
         #!/usr/bin/env bash
         set -euo pipefail
         pack config default-builder gcr.io/buildpacks/builder:v1
-        pack build demonodejs:latest
+        pack build demonodejs:latest --publish ${REPO}/demonodejs:latest
       env:
         REPO: docker.io/${{ secrets.DOCKER_HUB_USER }}
-    - name: Push
-      uses: docker/build-push-action@v3
-      with:
-        push: true
-        tags: alexanderpietschatdivae/demonodejs:latest
+  
