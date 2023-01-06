@@ -1,5 +1,8 @@
-name: Pack and publish
-on: [push, pull_request]
+on:
+  push: #on: [push, pull_request]
+    # Sequence of patterns matched against refs/heads
+    branches-ignore:    
+      - 'feature/**'
 jobs:
   build:
     name: Pack and publish
